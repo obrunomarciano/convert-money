@@ -9,6 +9,7 @@ function convertValues() {
 
     const dolaToday = 5.20 // valor fictício
     const euroToday = 6.20 // valor fictício
+    const libraToday = 6.50 // valor fictício
 
 
     if (currencySelec.value == "dolar") {
@@ -24,6 +25,14 @@ function convertValues() {
             style: "currency",
             currency: "EUR",
         }).format(inputCurrencyValue / euroToday)
+    }
+
+
+    if (currencySelec.value == "libra") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
+            style: "currency",
+            currency: "GBP",
+        }).format(inputCurrencyValue / libraToday)
     }
 
 
@@ -47,6 +56,12 @@ function changeCurrency() {
     if (currencySelec.value == "euro") {
         currencyName.innerHTML = "Euro"
         currencyImg.src = "./assets/euro.png"
+    }
+
+
+    if (currencySelec.value == "libra") {
+        currencyName.innerHTML = "Libra"
+        currencyImg.src = "./assets/libra.png"
     }
 
     convertValues() // vai chamar tudo aquilo que fizemos
